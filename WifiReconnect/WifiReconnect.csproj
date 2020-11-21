@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="CopySettings" AfterTargets="AfterBuild">
+    <Copy SourceFiles="settings.json" DestinationFolder="$(OutDir)" />
+  </Target>
+  <Target Name="CopySettingstOnPublish" AfterTargets="Publish">
+    <Copy SourceFiles="settings.json" DestinationFolder="$(PublishDir)" />
+  </Target>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+</Project>
